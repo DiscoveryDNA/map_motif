@@ -2,7 +2,7 @@
 
 ## About
 
-This program makes it easy to map motifs across multiple alignments to understand how much This program will map TFBS using the Biopython's motif package.
+This script maps motifs across multiple sequence using the Biopython's motif package.
 
 **Inputs**: 
 1. before alignment (fasta) 
@@ -10,7 +10,9 @@ This program makes it easy to map motifs across multiple alignments to understan
 3. TFBS Position Frequency Matrix.
 
 **Outputs**:
-1. `.csv` file that outputs found TFBSs at *each position*, if any, in alignment. 
+-`.csv` file that outputs found TFBSs at *each position*, if any, in alignment. 
+
+Output data frame includes:
 -  position
 -  score
 -  sequence entry
@@ -20,11 +22,10 @@ This program makes it easy to map motifs across multiple alignments to understan
 
 The output file will be saved in directory script was ran.
 
-Example output file:`map_motif-alignment.fa-motif.fm.csv`
+Example output file: `map_motif-alignment.fa-motif.fm.csv`
 
 ## To Run
 
 `python map_motif.py alignment.fa motif.fm`
-
 
 
