@@ -5,8 +5,7 @@
 This script maps motifs across multiple sequence using the Biopython's motif package.
 
 **Inputs**: 
-1. before alignment (fasta) 
-2. after alignment (fasta) 
+1. alignment (fasta) 
 3. TFBS Position Frequency Matrix.
 
 **Outputs**:
