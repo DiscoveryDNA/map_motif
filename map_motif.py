@@ -25,8 +25,8 @@ motif = motifs.read(open(sys.argv[2]), "pfm")
 alignment_file_name =  os.path.basename(sys.argv[1])
 motif_file_name =  os.path.basename(sys.argv[2])
 
-print alignment_file_name
-print motif_file_name
+print (alignment_file_name)
+print (motif_file_name)
 
 raw_sequences = []
 for record in alignment:
