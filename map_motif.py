@@ -89,7 +89,7 @@ for record in raw_sequences_2:
     record_length.append(len(record))
 
 position_list = []
-for i in range(0,8):
+for i in range(len(raw_id)):
     for position, score in pssm.search(raw_sequences_2[i], threshold = patser_threshold):
         positions = {'species': raw_id[i], 'score':score, 'position':position, 'seq_len': record_length[i] }
         position_list.append(positions)
@@ -133,10 +133,7 @@ for seq in raw_sequences_2:
 remap_list = []
 nuc_list = ['A', 'a', 'G', 'g', 'C', 'c', 'T', 't', 'N', 'n']
 
-positions = {'score':score, 'position':position, 'species': i}
-position_list.append(positions)
-
-for i in range(0,9):
+for i in range(len(raw_id)):
     counter = 0
     for xInd, x in enumerate(alignment[i].seq):    
         if x in nuc_list:
