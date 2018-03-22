@@ -136,7 +136,7 @@ nuc_list = ['A', 'a', 'G', 'g', 'C', 'c', 'T', 't', 'N', 'n']
 positions = {'score':score, 'position':position, 'species': i}
 position_list.append(positions)
 
-for i in range(0,9):
+for i in range(len(raw_id)):
     counter = 0
     for xInd, x in enumerate(alignment[i].seq):    
         if x in nuc_list:
