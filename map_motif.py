@@ -89,7 +89,7 @@ for record in raw_sequences_2:
     record_length.append(len(record))
 
 position_list = []
-for i in range(len(raw_id):
+for i in range(len(raw_id)):
     for position, score in pssm.search(raw_sequences_2[i], threshold = patser_threshold):
         positions = {'species': raw_id[i], 'score':score, 'position':position, 'seq_len': record_length[i] }
         position_list.append(positions)
