@@ -4,11 +4,11 @@
 
 This script maps motifs across multiple sequence using the Biopython's motif package.
 
-**Inputs**: 
+**File Inputs**: 
 1. alignment (fasta) 
-3. TFBS Position Frequency Matrix.
+2. TFBS Position Frequency Matrix.
 
-**Outputs**:
+**File Outputs**:
 -`.csv` file that outputs found TFBSs at *each position*, if any, in alignment. 
 
 Output data frame includes:
@@ -23,8 +23,13 @@ The output file will be saved in directory script was ran.
 
 Example output file: `map_motif-alignment.fa-motif.fm.csv`
 
+**Arguments**:
+1. alignment fasta file
+2. TFBS Position Frequency Matrix
+3. optional -threshold score cutoff (outputs only scores greater than the specified threshold) 
+
 ## To Run
 
-`python map_motif.py alignment.fa motif.fm`
+`python map_motif.py alignment.fa motif.fm 3.2`
 
 
