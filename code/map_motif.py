@@ -20,6 +20,10 @@ from collections import defaultdict
 ## read in alignment and motif 
 alignment = list(SeqIO.parse(sys.argv[1], "fasta"))
 motif = motifs.read(open(sys.argv[2]), "pfm")
+try:
+    threshold = sys.argv[3]
+except IndexError:
+    threshold = 10000
 
 # Used later when marking output file
 alignment_file_name =  os.path.basename(sys.argv[1])
@@ -155,8 +159,11 @@ TFBS_map_DF_all['alignment_file'] = alignment_file_name
 TFBS_map_DF_all['motif_file'] = motif_file_name
 
 ## Remove NAs
-TFBS_map_DF_all = TFBS_map_DF_all.dropna()   
+TFBS_map_DF_all = TFBS_map_DF_all.dropna()
 
+##remove values under the threshold if there is one
+print (threshold)
+TFBS_map_DF_all = TFBS_map_DF_all.loc[TFBS_map_DF_all['score'] >= float(threshold)] 
 
 ## Write out Files
 TFBS_map_DF_all.to_csv('map_motif' + alignment_file_name + "-" + motif_file_name + ".csv", sep='\t', na_rep="NA")
