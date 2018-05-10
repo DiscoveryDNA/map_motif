@@ -1,0 +1,33 @@
+html {
+  margin: none;
+}
+
+body {
+  background: black;
+}
+
+.svg-container {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  float:right;
+}
+
+.scroll {
+  height: 3000px;
+  background: linear-gradient(black 149.5px, #ccc 149.5px, #ccc 150.5px, black 150.5px);
+  background-size: 50px 300px;
+  background-position: 0 150px;
+  background-repeat: repeat-y;
+}
+
+svg {
+  cursor: pointer;
+  font-size: 30px;
+  font-family: "Abel";
+  color: white;
+}
