@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 #map_motif.py
 #Ciera Martinez
-
+import sys
+import os
 import re
 import pandas as pd
 import numpy as np
@@ -18,19 +19,27 @@ from collections import defaultdict
 #####################
 
 ## read in alignment and motif 
-alignment = list(SeqIO.parse(sys.argv[1], "fasta"))
-motif = motifs.read(open(sys.argv[2]), "pfm")
+try:
+    alignment = list(SeqIO.parse(sys.argv[1], "fasta"))
+except:
+    print ("ERROR This is not a fasta alignment file")
+    sys.exit()
+try:
+    motif = motifs.read(open(sys.argv[2]), "pfm")
+except:
+    print ("ERROR This is not a pfm file")
+    sys.exit()
 try:
     threshold = sys.argv[3]
 except IndexError:
-    threshold = 10000
+    threshold = -10000
 
 # Used later when marking output file
 alignment_file_name =  os.path.basename(sys.argv[1])
 motif_file_name =  os.path.basename(sys.argv[2])
 
-print (alignment_file_name)
-print (motif_file_name)
+print ("alignment file: " + alignment_file_name)
+print ("motif file: " + motif_file_name)
 
 raw_sequences = []
 for record in alignment:
@@ -162,8 +171,11 @@ TFBS_map_DF_all['motif_file'] = motif_file_name
 TFBS_map_DF_all = TFBS_map_DF_all.dropna()
 
 ##remove values under the threshold if there is one
-print (threshold)
+print ("Output Threshold: " + str(threshold))
 TFBS_map_DF_all = TFBS_map_DF_all.loc[TFBS_map_DF_all['score'] >= float(threshold)] 
 
 ## Write out Files
+print ("Success!!")
+print ("The output csv file is located at: " + os.getcwd())
+print ("Under the name: map_motif" + alignment_file_name + "-" + motif_file_name + ".csv")
 TFBS_map_DF_all.to_csv('map_motif' + alignment_file_name + "-" + motif_file_name + ".csv", sep='\t', na_rep="NA")
