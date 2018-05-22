@@ -2,7 +2,11 @@
 
 ## About
 
-This repository houses code that maps TFBS onto alignments. The purpose is to identify where TFBS are in an alignment. There are currently three ways in which to map, 1. the `map+motif.py` script that can be implemented in command line. 2. `motif_scoring_and_extraction.ipynb` that is a jupyter notebook of the script for interactive coding and visualization 3. The `D3_vis` portion, which is a working project to visualize TFBS interactively in the browser. 
+This repository houses code that maps TFBS onto alignments. The purpose is to identify where TFBS are in an alignment. There are currently three aspects of the code, located in  `/code` directory.
+
+1. the `map+motif.py` script that can be implemented in command line. 
+2. `motif_scoring_and_extraction.ipynb` that is a jupyter notebook of the script for interactive coding and visualization 
+3. The `/D3_vis` portion, which is a working project to visualize TFBS interactively in the browser. 
 
 ### `map_motif.py` 
 
